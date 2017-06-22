@@ -1,0 +1,95 @@
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <style>
+      input#answer{
+        border: 1px solid#ccc;
+        height: 30px;
+        width: 300px;
+        font-size: 16px
+      }
+
+       button#enter{
+         background-color:#eee;
+         text:#666;
+         font-size: 16px;
+         border: 1px solid #ccc;
+         font-weight:bold;
+         padding: 10 10 10 10;
+
+       }       
+
+       div#main{
+         margin-top: 60px;
+         text-align:center;
+       }
+
+       div#page{
+
+       }
+
+       div#space{
+         margin-top: 30px;
+         margin-bottom: 10px;
+       }
+
+        #question{
+         text:#eee;
+         font-size: 30px; 
+       }
+
+        #pic{ width:250px; height:250px }
+    </style>
+
+    <script>
+      function enterAndNext() {
+        document.getElementById("")
+      }
+    </Script>
+
+  </head>
+  <body>
+    <div id="main">
+      
+      <div id="page1" style="display:block">
+          <img id="pic" src="10905-rocket.png">
+          <p id="question"> What's Your Name?</p>
+          <input id="answer"/>
+          <div id="space"> 
+            <button id="enter" onclick="nextpage1()"> Enter Answer</button>
+            <script>
+            function nextpage1() {
+              document.getElementById('page1').style.display='none'
+              document.getElementById("page2").style.display='block'
+            }
+            </script>
+          </div>
+      </div>
+
+      <div id="page2" style="display:none">
+          <img id="pic" src="monkey.jpg">
+          <p id="question"> Hi James, what do you see in above picture?</p>
+          <input id="answer"/>
+          <div id="space"> 
+            <button id="enter" onclick="nextpage2()"> Enter Answer</button>
+            <script>
+            function nextpage2() {
+              document.getElementById('page2').style.display='none'
+              document.getElementById("page3").style.display='block'
+            }
+            </script>
+          </div>
+      </div>
+
+      <div id="page3" style="display:none">
+          <img id="pic" src="hippo.png">
+          <p id="question"> Well done James! Now, can you see a hippo? What color is it?</p>
+          <input id="answer"/>
+          <div id="space"> 
+            <button id="enter">Enter Answer</button>
+          </div>
+      </div>
+
+    </div>      
+  </body
+</html>
