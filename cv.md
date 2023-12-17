@@ -105,7 +105,7 @@ IBM MQ · Cross-cultural Teams · Oracle Database · Open Platform · Technology
 - Aug 2002 - Aug 2004
 - Helped established "Intelligent Building Laboratory" in the BSE department (now BEEE)
 - Feasibility study on programmable automation with BACnet and Honeywell products.
-- 
+  
 ---
 
 ## Education 
@@ -130,4 +130,6 @@ PublicationsPublications
 - Our iOS app, Morning HK, joined the competition held by the HK Government. The app demonstrate how various open data can be integrated and delivered to user via real time voice. Users just listen to the automatic reading so they could enjoy at any time. Worked with Roy Yeung.
 - [Data.gov.hk](https://data.gov.hk/en/application/morninghk)
 
+---
+__Updated: December 2023__
 
