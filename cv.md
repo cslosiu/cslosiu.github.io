@@ -6,9 +6,6 @@
 - City University of Hong Kong
 - July 2016 - Now
 
-<details>
-<summary>Job Details</summary>
-
 #### Summary
 - Central IT / software development for staff, students, and other units.
 - Manage development projects.
@@ -27,7 +24,6 @@
 
 #### Skills
 Project Management · Project Delivery · Use Cases · User Experience (UX) · Communication
-</details>
 
 ---
 
