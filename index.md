@@ -1,6 +1,6 @@
 # welcome
 
-Welcome to my github page.
+Not much to say here...
 
 # Links
 - [CV](cv.md)
