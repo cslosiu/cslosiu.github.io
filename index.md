@@ -1,6 +1,13 @@
-# welcome
+# blogs
 
-Not much to say here...
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 
 # topics
 - [投資/理財](invest.md)
