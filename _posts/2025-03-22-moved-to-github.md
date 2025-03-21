@@ -1,6 +1,6 @@
 ---
-title: Moved to github 
 layout: post
+title: Moved to github 
 ---
 
 終於下決心搬到github。身為程序員，點可以喺第二啲地方寫blog？ 
