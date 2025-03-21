@@ -20,3 +20,5 @@ category: IT
 二維QR-CODE沒來得及搞，但應該沒問題。
 
 另外也試了個把全部東西畫成一張圖輸出的，也是可以。但是它是腳先出來，而且筆畫不夠清晰，不是太理想。還是用前面那個。
+
+![image](https://github.com/user-attachments/assets/66f42d9b-e3cc-4a30-8afa-5aeedc9af462)
