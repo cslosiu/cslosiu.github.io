@@ -2,10 +2,10 @@
 title: losiu.org
 ---
 
-# pages
+## pages
 - On me and this site: [about](/about)
 
-# blog
+## blog
 <ul>
   {% for post in site.posts %}
     <li>
@@ -16,6 +16,6 @@ title: losiu.org
 </ul>
 
 
-# feed
+## feed
 - If you have a RSS reader, subscribe: [feed](feed.xml)
 
