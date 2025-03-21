@@ -1,18 +1,8 @@
-# blogs
+# blog
+{%-include post_list.html -%}
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+# posts by categories
+{%-include post_list.html category=page.which_category-%}
 
-
-# topics
-- [投資/理財](invest.md)
-
-# Links
-- [CV](cv.md)
-- [markdown ref](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 
-
+# feed
+[feed](feed.xml)
