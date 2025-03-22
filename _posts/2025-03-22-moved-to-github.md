@@ -10,3 +10,5 @@ title: Moved to github
 馬上即刻搬屋。
 
 ps: 都有考慮過去WordPress搵一個簡單嘅設計。不過用自己domain 就要畀錢。咁無辦法了。
+
+update: 自己域名連上了但未搞定 https 🤨🤨
