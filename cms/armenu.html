@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR Dining Menu</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f7f9;
+      --bg-dark: #1b1b1f;
+      --card: #ffffffcc;
+      --card-dark: #2c2c31cc;
+      --primary: #f76c6c;
+      --primary-dark: #ff9e67;
+      --text: #1f1f24;
+      --text-dark: #f5f5f7;
+      --muted: #5c5c65;
+      --muted-dark: #b5b5c3;
+      font-family: "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(140deg, rgba(247, 108, 108, 0.08), rgba(255, 158, 103, 0.12));
+      color: var(--text);
+      font-family: var(--font, system-ui);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 64px;
+      box-sizing: border-box;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(140deg, rgba(247, 108, 108, 0.12), rgba(32, 32, 36, 0.9));
+        color: var(--text-dark);
+      }
+    }
+
+    header {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      letter-spacing: -0.015em;
+    }
+
+    p.subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 3.2vw, 1.25rem);
+      line-height: 1.5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      p.subtitle {
+        color: var(--muted-dark);
+      }
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 20px;
+      width: 100%;
+      max-width: 960px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      backdrop-filter: blur(12px);
+      background: var(--card);
+      border-radius: 22px;
+      padding: 24px 20px;
+      box-shadow: 0 16px 32px -24px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .card {
+        background: var(--card-dark);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -28px rgba(0, 0, 0, 0.45);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.97rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .card p {
+        color: var(--muted-dark);
+      }
+    }
+
+    .cta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      letter-spacing: 0.015em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 20px -16px rgba(247, 108, 108, 0.9);
+    }
+
+    .cta a span.emoji {
+      font-size: 1.2rem;
+    }
+
+    .cta a:hover,
+    .cta a:focus {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 28px -18px rgba(247, 108, 108, 0.9);
+    }
+
+    .tip {
+      margin-top: 36px;
+      max-width: 600px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .tip {
+        color: var(--muted-dark);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AR Signature Tasting Menu</h1>
+    <p class="subtitle">
+      Explore our chef’s creations in augmented reality. Tap any dish to open it in AR Quick Look on your iPhone and visualize it right on your table.
+    </p>
+  </header>
+
+  <section class="menu-grid">
+    <article class="card">
+      <h2>1. Citrus Glazed Salmon</h2>
+      <p>
+        Sustainably sourced salmon glazed with yuzu and orange, served atop a bed of roasted fennel and baby asparagus. Experience the plating in your own space before it arrives.
+      </p>
+      <div class="cta">
+        <a rel="ar" href="https://ar-code.com/y5CuYCxIz" aria-label="View Citrus Glazed Salmon in AR">
+          <span class="emoji">🍣</span>
+          <span>View in AR</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>2. Truffle Mushroom Risotto</h2>
+      <p>
+        Silky Arborio rice finished with wild mushrooms, shaved black truffle, and Parmigiano-Reggiano. Check the portion and presentation in augmented reality.
+      </p>
+      <div class="cta">
+        <a rel="ar" href="https://ar-code.com/dDTxhJRrc" aria-label="View Truffle Mushroom Risotto in AR">
+          <span class="emoji">🍄</span>
+          <span>View in AR</span>
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>3. Matcha Crème Brûlée</h2>
+      <p>
+        A delicate custard infused with ceremonial-grade matcha, caramelized to perfection. Bring the dessert to your table virtually and admire the details.
+      </p>
+      <div class="cta">
+        <a rel="ar" href="https://ar-code.com/xMtvTwmgl" aria-label="View Matcha Crème Brûlée in AR">
+          <span class="emoji">🍮</span>
+          <span>View in AR</span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <p class="tip">
+    Tip: AR Quick Look works best on iPhone and iPad running iOS 12 or later. When prompted, move your device to detect a surface and place the 3D dish at true scale.
+  </p>
+</body>
+</html>
