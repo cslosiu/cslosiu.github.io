@@ -6,7 +6,6 @@
   <title>AR Dining Menu</title>
   <style>
     :root {
-      color-scheme: light dark;
       --bg: #f7f7f9;
       --bg-dark: #1b1b1f;
       --card: #ffffffcc;
@@ -33,12 +32,7 @@
       box-sizing: border-box;
     }
 
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: linear-gradient(140deg, rgba(247, 108, 108, 0.12), rgba(32, 32, 36, 0.9));
-        color: var(--text-dark);
-      }
-    }
+ 
 
     header {
       text-align: center;
@@ -59,11 +53,7 @@
       line-height: 1.5;
     }
 
-    @media (prefers-color-scheme: dark) {
-      p.subtitle {
-        color: var(--muted-dark);
-      }
-    }
+   
 
     .menu-grid {
       display: grid;
@@ -86,12 +76,7 @@
       border: 1px solid rgba(0, 0, 0, 0.04);
     }
 
-    @media (prefers-color-scheme: dark) {
-      .card {
-        background: var(--card-dark);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-    }
+   
 
     .card:hover,
     .card:focus-within {
@@ -112,12 +97,7 @@
       font-size: 0.97rem;
     }
 
-    @media (prefers-color-scheme: dark) {
-      .card p {
-        color: var(--muted-dark);
-      }
-    }
-
+   
     .cta {
       margin-top: auto;
       display: flex;
@@ -161,11 +141,7 @@
       line-height: 1.6;
     }
 
-    @media (prefers-color-scheme: dark) {
-      .tip {
-        color: var(--muted-dark);
-      }
-    }
+   
   </style>
 </head>
 <body>
@@ -179,12 +155,13 @@
 
   <section class="menu-grid">
     <article class="card">
-      <h2>1. Citrus Glazed Salmon</h2>
+      <h2>1. Cooked Shrimp Sushi</h2>
       <p>
-        Sustainably sourced salmon glazed with yuzu and orange, served atop a bed of roasted fennel and baby asparagus. Experience the plating in your own space before it arrives.
+        Sweet, tender shrimp laid over lightly seasoned rice, offering a clean, ocean‑fresh bite.  
+
       </p>
       <div class="cta">
-        <a rel="ar" href="https://ar-code.com/y5CuYCxIz" aria-label="View Citrus Glazed Salmon in AR">
+        <a rel="ar" href="https://ar-code.com/y5CuYCxIz" aria-label="View Cooked Shrimp Sushi in AR">
           <span class="emoji">🍣</span>
           <span>View in AR</span>
         </a>
@@ -192,12 +169,13 @@
     </article>
 
     <article class="card">
-      <h2>2. Truffle Mushroom Risotto</h2>
+      <h2>2. Takoyaki</h2>
       <p>
-        Silky Arborio rice finished with wild mushrooms, shaved black truffle, and Parmigiano-Reggiano. Check the portion and presentation in augmented reality.
+        Crispy on the outside and creamy inside, each ball hides a piece of tender octopus with savory sauce and bonito flakes on top.  
+
       </p>
       <div class="cta">
-        <a rel="ar" href="https://ar-code.com/dDTxhJRrc" aria-label="View Truffle Mushroom Risotto in AR">
+        <a rel="ar" href="https://ar-code.com/dDTxhJRrc" aria-label="View Takoyaki in AR">
           <span class="emoji">🍄</span>
           <span>View in AR</span>
         </a>
@@ -205,12 +183,12 @@
     </article>
 
     <article class="card">
-      <h2>3. Matcha Crème Brûlée</h2>
+      <h2>3. Craft Beer</h2>
       <p>
-        A delicate custard infused with ceremonial-grade matcha, caramelized to perfection. Bring the dessert to your table virtually and admire the details.
+        Bright, aromatic, and well‑balanced, delivering a smooth finish with subtle malt and hop notes.
       </p>
       <div class="cta">
-        <a rel="ar" href="https://ar-code.com/xMtvTwmgl" aria-label="View Matcha Crème Brûlée in AR">
+        <a rel="ar" href="https://ar-code.com/xMtvTwmgl" aria-label="View Craft Beer in AR">
           <span class="emoji">🍮</span>
           <span>View in AR</span>
         </a>
