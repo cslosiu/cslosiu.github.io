@@ -1,0 +1,59 @@
+name: Rebuild All Posts from Issues
+
+on:
+  workflow_dispatch: # Allows manual trigger from the Actions tab
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch all issues and convert to posts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p _posts
+          
+          # Use GitHub CLI (gh) to get all issues in JSON format
+          # This handles pagination automatically
+          gh issue list --state open --limit 1000 --json number,title,body,createdAt,labels | jq -c '.[]' | while read -r issue; do
+            
+            # Extract data using jq
+            NUMBER=$(echo "$issue" | jq -r '.number')
+            TITLE=$(echo "$issue" | jq -r '.title')
+            BODY=$(echo "$issue" | jq -r '.body')
+            CREATED_AT=$(echo "$issue" | jq -r '.createdAt')
+            LABELS=$(echo "$issue" | jq -r '.labels[].name' | tr '\n' ',' | sed 's/,$//')
+            
+            # Format Date
+            DATE_ONLY=$(date -d "$CREATED_AT" +%Y-%m-%d)
+            FILENAME="_posts/${DATE_ONLY}-${NUMBER}.md"
+            
+            # Generate Post File
+            echo "---" > "$FILENAME"
+            echo "layout: post" >> "$FILENAME"
+            echo "title: \"$TITLE\"" >> "$FILENAME"
+            echo "date: $DATE_ONLY" >> "$FILENAME"
+            echo "tags: [$LABELS]" >> "$FILENAME"
+            echo "issue_number: $NUMBER" >> "$FILENAME"
+            echo "---" >> "$FILENAME"
+            echo "" >> "$FILENAME"
+            echo "$BODY" >> "$FILENAME"
+            
+            echo "Processed issue #$NUMBER: $TITLE"
+          done
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add _posts/*.md
+          git commit -m "docs: rebuild all posts from issues" || echo "No changes to commit"
+          git push
+          
