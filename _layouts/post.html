@@ -1,38 +1,31 @@
 ---
 layout: default
 ---
-<article style="background-color: #fffcf0; min-height: 100vh; padding: 40px; max-width: 800px; margin: auto;">
-  
-  <header style="margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 20px;">
-    <h1 style="font-size: 2.5em; margin-bottom: 10px;">{{ page.title }}</h1>
+<nav style="margin-bottom: 20px;">
+  <a href="{{ '/' | relative_url }}" style="font-size: 0.9em; color: #007bff;">← Back to Index</a>
+</nav>
+
+<article class="post-wrapper">
+  <header style="margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+    <h1 style="font-size: 1.8em; line-height: 1.2; margin: 0 0 10px 0;">{{ page.title }}</h1>
     
-    <div style="color: #666; font-family: monospace;">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%Y-%m-%d" }}
-      </time>
-      
+    <div style="color: #666; font-family: monospace; font-size: 0.85em; display: flex; flex-wrap: wrap; gap: 15px;">
+      <time>{{ page.date | date: "%Y-%m-%d" }}</time>
       {% if page.tags.size > 0 %}
-        <span style="margin-left: 20px;">
-          Tags: 
+        <div class="post-tags">
           {% for tag in page.tags %}
-            <span style="background: #eee; padding: 2px 8px; border-radius: 3px; margin-right: 5px;">
-              {{ tag }}
-            </span>
+            <span style="background: #e9e5d5; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">#{{ tag }}</span>
           {% endfor %}
-        </span>
+        </div>
       {% endif %}
     </div>
   </header>
 
-  <div class="post-content" style="line-height: 1.8; font-size: 1.1em;">
+  <div class="post-content" style="line-height: 1.7; font-size: 1.05em; word-wrap: break-word;">
     {{ content }}
   </div>
 
-  <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd;">
-    <a href="{{ '/' | relative_url }}" style="text-decoration: none; color: #007bff;">← Back to Index</a>
-    <p style="font-size: 0.8em; color: #999; margin-top: 20px;">
-      Originally published as Issue #{{ page.issue_number }}
-    </p>
+  <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
+    <a href="{{ '/' | relative_url }}">← Back to Index</a>
   </footer>
-
 </article>
