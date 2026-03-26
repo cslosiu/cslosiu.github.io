@@ -1,4 +1,4 @@
-:name: Convert Issue to Post
+name: Convert Issue to Post
 
 on:
   issues:
