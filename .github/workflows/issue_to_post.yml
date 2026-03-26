@@ -29,7 +29,7 @@ jobs:
         run: |
           # Format the date to YYYY-MM-DD
           DATE_ONLY=$(echo "$ISSUE_DATE" | cut -d'T' -f1)
-          LABELS=$(echo '${{ toJson(${ISSUE_LABEL}) }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')          
+          LABELS=$(echo '${{ toJson("${ISSUE_LABEL}") }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')          
           FILENAME="_posts/${DATE_ONLY}-${ISSUE_NUMBER}.md"
 
           # Create the Jekyll Post with Front Matter
