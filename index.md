@@ -3,6 +3,29 @@ layout: default
 title: Home
 ---
 
+<style>
+  /* 移除列表的點與縮排 */
+  #postList {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+  }
+
+  /* 讓每一行文章有稍微的間距，閱讀更舒適 */
+  .post-item {
+    margin-bottom: 12px;
+    display: flex; /* 使用 flex 讓日期與標題對齊更美觀 */
+    align-items: baseline;
+  }
+
+  .post-date {
+    font-family: monospace;
+    color: #777;
+    margin-right: 15px;
+    flex-shrink: 0; /* 確保日期不會因為標題太長而被壓縮 */
+  }
+</style>
+
 <header style="margin-bottom: 40px;">
   <h1 style="font-size: 2.2em; margin-bottom: 0.5rem;">{{ site.title | default: "My Digital Garden" }}</h1>
   
@@ -20,10 +43,11 @@ title: Home
 
 <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
-<ul class="post-list" id="postList" style="list-style-type: disc; padding-left: 20px;">
-  {% for post in site.posts %}
-  <li class="post-entry" data-title="{{ post.title | downcase }}" data-tags="{{ post.tags | join: ',' | downcase }}">
-    <span class="post-date" style="font-family: monospace; color: #777; margin-right: 10px;">{{ post.date | date: "%Y-%m-%d" }}</span>
+<ul id="postList">
+  {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+  {% for post in sorted_posts %}
+  <li class="post-item" data-title="{{ post.title | downcase }}" data-tags="{{ post.tags | join: ',' | downcase }}">
+    <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
     <a href="{{ post.url }}">{{ post.title }}</a>
   </li>
   {% endfor %}
