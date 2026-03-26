@@ -28,16 +28,16 @@ jobs:
           ISSUE_LABEL: ${{ github.event.issue.labels }}
         run: |
           # Format the date to YYYY-MM-DD
-	  DATE_ONLY=$(echo "$ISSUE_DATE" | cut -d'T' -f1)
-	  LABELS=$(echo '${{ toJson(${ISSUE_LABEL}) }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')          
-	  FILENAME="_posts/${DATE_ONLY}-${ISSUE_NUMBER}.md"
+          DATE_ONLY=$(echo "$ISSUE_DATE" | cut -d'T' -f1)
+          LABELS=$(echo '${{ toJson(${ISSUE_LABEL}) }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')          
+          FILENAME="_posts/${DATE_ONLY}-${ISSUE_NUMBER}.md"
 
           # Create the Jekyll Post with Front Matter
           echo "---" > "$FILENAME"
           echo "layout: post" >> "$FILENAME"
           echo "title: \"$ISSUE_TITLE\"" >> "$FILENAME"
           echo "date: $DATE_ONLY" >> "$FILENAME"
-	  echo "tags: [$LABELS]" >> "$FILENAME"
+          echo "tags: [$LABELS]" >> "$FILENAME"
           echo "issue_number: $ISSUE_NUMBER" >> "$FILENAME"
           echo "---" >> "$FILENAME"
           echo "" >> "$FILENAME"
