@@ -25,10 +25,11 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           # Extract only the date (YYYY-MM-DD) from the creation timestamp
           ISSUE_DATE: ${{ github.event.issue.created_at }}
+          ISSUE_LABEL: ${{ github.event.issue.labels }}
         run: |
           # Format the date to YYYY-MM-DD
-	  DATE_ONLY=$(date -d "${{ github.event.issue.created_at }}" +%Y-%m-%d)
-	  LABELS=$(echo '${{ toJson(github.event.issue.labels) }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')          
+	  DATE_ONLY=$(echo "$ISSUE_DATE" | cut -d'T' -f1)
+	  LABELS=$(echo '${{ toJson(${ISSUE_LABEL}) }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')          
 	  FILENAME="_posts/${DATE_ONLY}-${ISSUE_NUMBER}.md"
 
           # Create the Jekyll Post with Front Matter
