@@ -1,0 +1,41 @@
+name: Delete All Closed Issues
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+jobs:
+  delete_closed_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Delete all closed issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          echo "Fetching closed issues..."
+
+          DELETED=0
+          FAILED=0
+
+          while true; do
+            # Fetch a batch of closed issues
+            ISSUES=$(gh issue list --state closed --limit 100 --json number --jq '.[].number')
+
+            [ -z "$ISSUES" ] && break
+
+            for NUMBER in $ISSUES; do
+              if gh issue delete "$NUMBER" --yes; then
+                echo "✅ Deleted issue #$NUMBER"
+                DELETED=$((DELETED + 1))
+              else
+                echo "❌ Failed to delete issue #$NUMBER"
+                FAILED=$((FAILED + 1))
+              fi
+            done
+          done
+
+          echo ""
+          echo "Done. Deleted: $DELETED, Failed: $FAILED"

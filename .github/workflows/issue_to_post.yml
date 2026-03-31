@@ -2,12 +2,13 @@ name: Convert Issue to Post
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled]
 
 jobs:
   sync_issue_to_post:
     runs-on: ubuntu-latest
-    # Necessary permissions to push changes back to the repo
+    # Only process issues with the "publish" label
+    if: contains(github.event.issue.labels.*.name, 'publish')
     permissions:
       contents: write
 
@@ -15,32 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create _posts directory if it doesn't exist
-        run: mkdir -p _posts
-
-      - name: Process Issue Data
-        env:
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          # Extract only the date (YYYY-MM-DD) from the creation timestamp
-          ISSUE_DATE: ${{ github.event.issue.created_at }}
-        run: |
-          # Format the date to YYYY-MM-DD
-          DATE_ONLY=$(echo "$ISSUE_DATE" | cut -d'T' -f1)
-          LABELS=$(echo '${{ toJson(github.event.issue.labels) }}' | jq -r '.[].name' | tr '\n' ',' | sed 's/,$//')
-          FILENAME="_posts/${DATE_ONLY}-${ISSUE_NUMBER}.md"
-
-          # Create the Jekyll Post with Front Matter
-          echo "---" > "$FILENAME"
-          echo "layout: post" >> "$FILENAME"
-          echo "title: \"$ISSUE_TITLE\"" >> "$FILENAME"
-          echo "date: $DATE_ONLY" >> "$FILENAME"
-          echo "tags: [$LABELS]" >> "$FILENAME"
-          echo "issue_number: $ISSUE_NUMBER" >> "$FILENAME"
-          echo "---" >> "$FILENAME"
-          echo "" >> "$FILENAME"
-          echo "$ISSUE_BODY" >> "$FILENAME"
+      - name: Convert issue to post
+        uses: ./.github/actions/convert-issue-to-post
+        with:
+          # Wrap the single issue object into a JSON array
+          issues-json: "[${{ toJson(github.event.issue) }}]"
 
       - name: Commit and Push changes
         run: |
@@ -49,4 +29,3 @@ jobs:
           git add _posts/*.md
           git commit -m "docs: convert issue #${{ github.event.issue.number }} to Jekyll post" || echo "No changes to commit"
           git push
-
