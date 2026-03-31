@@ -1,0 +1,37 @@
+name: Delete Post on Issue Deletion
+
+on:
+  issues:
+    types: [deleted]
+
+jobs:
+  delete_post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Delete matching post file
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          # Find the post file whose basename ends with "-<issue_number>.md"
+          MATCH=$(find _posts -maxdepth 1 -name "*-${ISSUE_NUMBER}.md" | head -n 1)
+
+          if [ -z "$MATCH" ]; then
+            echo "No post file found for issue #${ISSUE_NUMBER}, nothing to delete."
+            exit 0
+          fi
+
+          echo "Deleting: $MATCH"
+          git rm "$MATCH"
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "docs: remove post for deleted issue #${{ github.event.issue.number }}" || echo "No changes to commit"
+          git push
