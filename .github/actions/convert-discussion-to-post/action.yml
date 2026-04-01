@@ -1,0 +1,77 @@
+name: Convert Discussions to Posts
+description: >
+  Converts a JSON array of GitHub discussions into Jekyll _posts markdown files.
+  Supports ISO date prefix in titles, filters out the "publish" label.
+  Tags include discussion labels (minus "publish") and the discussion category.
+
+inputs:
+  discussions-json:
+    description: >
+      JSON array of discussion objects. Each object must have:
+      number, title, body, createdAt,
+      category (object with a "name" field),
+      labels (array of objects with "name", or GraphQL object with "nodes" array).
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Generate post files
+      shell: bash
+      env:
+        DISCUSSIONS_JSON: ${{ inputs.discussions-json }}
+      run: |
+        mkdir -p _posts
+
+        echo "$DISCUSSIONS_JSON" | jq -c '.[]' | while IFS= read -r discussion; do
+          NUMBER=$(echo "$discussion" | jq -r '.number')
+          TITLE=$(echo "$discussion" | jq -r '.title')
+          BODY=$(echo "$discussion" | jq -r '.body // ""')
+          CREATED_AT=$(echo "$discussion" | jq -r '.createdAt')
+          CATEGORY=$(echo "$discussion" | jq -r '.category.name // ""')
+
+          # Handle both plain array (.labels) and GraphQL format (.labels.nodes)
+          LABELS_JSON=$(echo "$discussion" | jq 'if .labels | type == "array" then .labels else (.labels.nodes // []) end')
+
+          # Format the creation date to YYYY-MM-DD
+          CREATED_DATE=$(echo "$CREATED_AT" | cut -d'T' -f1)
+
+          # If title starts with an ISO date (YYYY-MM-DD), use it as the file
+          # date and trim it (plus any following spaces) from the post title
+          if echo "$TITLE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}'; then
+            DATE_ONLY=$(echo "$TITLE" | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}')
+            POST_TITLE=$(echo "$TITLE" | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}[[:space:]]*//')
+          else
+            DATE_ONLY="$CREATED_DATE"
+            POST_TITLE="$TITLE"
+          fi
+
+          # Escape double quotes in title for YAML double-quoted string
+          SAFE_TITLE=$(echo "$POST_TITLE" | sed 's/"/\\"/g')
+
+          # Build tags: labels (excluding "publish") + category name
+          LABEL_TAGS=$(echo "$LABELS_JSON" | jq -r '[.[].name | select(. != "publish")] | join(",")')
+          if [ -n "$CATEGORY" ] && [ -n "$LABEL_TAGS" ]; then
+            TAGS="${LABEL_TAGS},${CATEGORY}"
+          elif [ -n "$CATEGORY" ]; then
+            TAGS="$CATEGORY"
+          else
+            TAGS="$LABEL_TAGS"
+          fi
+
+          FILENAME="_posts/${DATE_ONLY}-${NUMBER}.md"
+
+          {
+            echo "---"
+            echo "layout: post"
+            echo "title: \"$SAFE_TITLE\""
+            echo "date: $DATE_ONLY"
+            echo "tags: [$TAGS]"
+            echo "discussion_number: $NUMBER"
+            echo "---"
+            echo ""
+            printf '%s\n' "$BODY"
+          } > "$FILENAME"
+
+          echo "Created: $FILENAME"
+        done

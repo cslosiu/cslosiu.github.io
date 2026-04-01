@@ -2,10 +2,14 @@ name: Delete Post on Issue Deletion
 
 on:
   issues:
-    types: [deleted]
+    types: [deleted, unlabeled]
 
 jobs:
   delete_post:
+    # For unlabeled events, only proceed when the removed label is "publish"
+    if: >
+      github.event.action == 'deleted' ||
+      (github.event.action == 'unlabeled' && github.event.label.name == 'publish')
     runs-on: ubuntu-latest
     permissions:
       contents: write
