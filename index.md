@@ -24,6 +24,16 @@ title: Home
     margin-right: 15px;
     flex-shrink: 0; /* 確保日期不會因為標題太長而被壓縮 */
   }
+
+  .post-tags {
+    font-size: 0.78em;
+    color: #aaa;
+    margin-left: 10px;
+  }
+
+  .post-tags span {
+    margin-right: 6px;
+  }
 </style>
 
 <header style="margin-bottom: 40px;">
@@ -49,13 +59,17 @@ title: Home
   <li class="post-item" data-title="{{ post.title | downcase }}" data-tags="{{ post.tags | join: ',' | downcase }}">
     <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
     <a href="{{ post.url }}">{{ post.title }}</a>
+    {% assign visible_tags = post.tags | reject: "publish" %}
+    {% if visible_tags.size > 0 %}
+    <span class="post-tags">{% for tag in visible_tags %}<span>#{{ tag }}</span>{% endfor %}</span>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>
 
 <script>
   const searchInput = document.getElementById('searchInput');
-  const posts = document.querySelectorAll('.post-entry');
+  const posts = document.querySelectorAll('.post-item');
 
   function filterPosts() {
     const searchTerm = searchInput.value.toLowerCase();
