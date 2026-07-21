@@ -3,6 +3,8 @@ layout: default
 title: Day Log
 ---
 
+See the [Day Log app manual](daylog-manual.md) for how to use the app.
+
 ### Welcome to use Day Log!
 
 This is a handy tool:
