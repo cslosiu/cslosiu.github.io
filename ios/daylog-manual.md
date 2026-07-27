@@ -1,3 +1,8 @@
+---
+layout: default
+title: Day Log Manual
+---
+
 # Daylog User Manual
 
 Daylog is a simple journaling app organized by **books**. Each book is a timeline of entries you can write quickly, tag, search, and summarize.
