@@ -26,6 +26,26 @@ layout: default
   </div>
 
   <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee;">
+    {% if page.previous or page.next %}
+    <nav class="post-nav" style="display: flex; justify-content: space-between; gap: 20px; margin-bottom: 24px; font-size: 0.95em;">
+      <div style="flex: 1; min-width: 0;">
+        {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" style="display: block; color: #007bff;">
+          <span style="display: block; color: #666; font-family: monospace; font-size: 0.85em; margin-bottom: 4px;">← Previous</span>
+          <span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ page.previous.title }}</span>
+        </a>
+        {% endif %}
+      </div>
+      <div style="flex: 1; min-width: 0; text-align: right;">
+        {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" style="display: block; color: #007bff;">
+          <span style="display: block; color: #666; font-family: monospace; font-size: 0.85em; margin-bottom: 4px;">Next →</span>
+          <span style="display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ page.next.title }}</span>
+        </a>
+        {% endif %}
+      </div>
+    </nav>
+    {% endif %}
     <a href="{{ '/' | relative_url }}">← Back to Index</a>
   </footer>
 </article>
