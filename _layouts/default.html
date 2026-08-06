@@ -3,38 +3,237 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>{{ page.title }} | {{ site.title }}</title>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <style>
-    body { 
-      background-color: #fffcf0; 
-      margin: 0; 
+    :root {
+      color-scheme: light;
+      --bg: #fffcf0;
+      --bg-elevated: #fffdf5;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --muted-soft: #777777;
+      --border: #e8e4d8;
+      --link: #007bff;
+      --link-hover: #0056b3;
+      --tag-bg: #e9e5d5;
+      --input-bg: #fffdf5;
+      --input-border: #cccccc;
+      --nav-bg: rgba(255, 252, 240, 0.92);
+      --nav-border: #e8e4d8;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #161614;
+      --bg-elevated: #22221e;
+      --text: #eceae3;
+      --muted: #a8a59a;
+      --muted-soft: #8f8c82;
+      --border: #33332d;
+      --link: #6cb6ff;
+      --link-hover: #9dceff;
+      --tag-bg: #2c2c27;
+      --input-bg: #1e1e1a;
+      --input-border: #44443c;
+      --nav-bg: rgba(22, 22, 20, 0.92);
+      --nav-border: #33332d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
       padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
-    }
-    
-    /* Responsive container for all pages */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      box-sizing: border-box; /* Ensures padding doesn't break width */
+      line-height: 1.5;
     }
 
-    a { color: #007bff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-    /* Fix for images so they don't overflow small screens */
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
     img {
       max-width: 100%;
       height: auto;
     }
+
+    pre, code {
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    table {
+      display: block;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--nav-border);
+    }
+
+    .site-nav {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+      min-height: 48px;
+    }
+
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 4px 2px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .site-nav .nav-spacer {
+      flex: 1 1 auto;
+      min-width: 8px;
+    }
+
+    .theme-toggle {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text);
+      border-radius: 8px;
+      min-height: 40px;
+      padding: 6px 12px;
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--muted-soft);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Shared helpers used by pages / post layout */
+    .muted { color: var(--muted); }
+    .border-bottom { border-bottom: 1px solid var(--border); }
+    .border-top { border-top: 1px solid var(--border); }
+
+    .search-input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid var(--input-border);
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .search-input::placeholder {
+      color: var(--muted-soft);
+    }
+
+    .tag-pill {
+      background: var(--tag-bg);
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 5px;
+    }
+
+    hr.site-rule {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: 20px 0;
+    }
+
+    @media (max-width: 560px) {
+      .site-nav {
+        padding: 8px 16px;
+        gap: 4px 12px;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      .site-nav a {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Site">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="https://apps.apple.com/hk/developer/siu-lo/id380878489" rel="noopener noreferrer">My Apps</a>
+      <span class="nav-spacer" aria-hidden="true"></span>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle color scheme">Dark</button>
+    </nav>
+  </header>
+
   <div class="container">
     {{ content }}
   </div>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('themeToggle');
+      if (!toggle) return;
+
+      function labelFor(theme) {
+        return theme === 'dark' ? 'Light' : 'Dark';
+      }
+
+      function apply(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+        toggle.textContent = labelFor(theme);
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light scheme' : 'Switch to dark scheme');
+      }
+
+      apply(document.documentElement.getAttribute('data-theme') || 'light');
+
+      toggle.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+      });
+    })();
+  </script>
 </body>
 </html>
