@@ -1,41 +1,41 @@
-# AnyData 使用手冊（User Manual）
+# AnyData User Manual
 
-**AnyData - Design your database** 是在 iPhone / iPad 上使用的本機自訂資料庫 App。  
-你可以建立多個 **Workspace**，定義 **Enumerables** 與 **Classes**，用 **Instances** / **Forms** 輸入資料，用 **Views** 篩選、關聯與彙總，並以 **ER Diagram** 檢視結構，或匯出 SQL / CSV。
+**AnyData - Design your database** is a local custom-database app for iPhone and iPad.  
+You can create multiple **Workspaces**, define **Enumerables** and **Classes**, enter data with **Instances** / **Forms**, explore with **Views** (filters, joins, and aggregations), inspect structure in the **ER Diagram**, and export SQL or CSV.
 
-資料儲存在裝置本機（SwiftData），**不需帳號**，也不會自動雲端同步。
+Data is stored on device (SwiftData). **No account** is required, and the app does not sync to the cloud automatically.
 
-> 畫面、按鈕與 App 內名稱（例如 `Workspaces`、`Generate Sample`、`Submit`）以**英文**呈現，與介面一致。本手冊以繁體中文說明操作。
+> UI labels (for example `Workspaces`, `Generate Sample`, `Submit`) match the English interface.
 
 ---
 
-## 目錄
+## Contents
 
-1. [快速開始](#1-快速開始)
+1. [Quick start](#1-quick-start)
 2. [Workspaces](#2-workspaces)
 3. [Enumerables](#3-enumerables)
-4. [Classes 與 Properties](#4-classes-與-properties)
+4. [Classes and Properties](#4-classes-and-properties)
 5. [Instances](#5-instances)
 6. [Forms](#6-forms)
 7. [Views](#7-views)
 8. [ER Diagram](#8-er-diagram)
-9. [匯出（Export）](#9-匯出export)
+9. [Export](#9-export)
 10. [Generate Sample](#10-generate-sample)
-11. [能力與限制](#11-能力與限制)
-12. [名詞對照](#12-名詞對照)
+11. [Capabilities and limits](#11-capabilities-and-limits)
+12. [Glossary](#12-glossary)
 
 ---
 
-## 1. 快速開始
+## 1. Quick start
 
-### 建議流程
+### Suggested flow
 
-1. 開啟 App → 建立一個 **Workspace**。  
-2. （可選）在空白 Workspace 點 **Generate Sample**，立刻得到示範結構與資料。  
-3. 或自行：**Enumerables** → **Classes / Properties** → **Instances** 或 **Forms** → **Views**。  
-4. 用 **ER Diagram** 檢查關聯；需要時用 **⋯** 選單匯出。
+1. Open the app → create a **Workspace**.  
+2. (Optional) In an empty Workspace, tap **Generate Sample** for demo schema and data.  
+3. Or build yourself: **Enumerables** → **Classes / Properties** → **Instances** or **Forms** → **Views**.  
+4. Use **ER Diagram** to check relationships; export from the **⋯** menu when needed.
 
-### 導覽結構
+### Navigation
 
 ```
 Workspaces
@@ -44,235 +44,235 @@ Workspaces
        ├─ Classes → Properties / Instances
        ├─ Views
        ├─ Forms
-       ├─ Generate Sample（僅空 Workspace）
-       └─ ⋯ 選單 → Export… / ER Diagram
+       ├─ Generate Sample (empty Workspace only)
+       └─ ⋯ menu → Export… / ER Diagram
 ```
 
 ---
 
 ## 2. Workspaces
 
-**Workspace** 是一套獨立的資料空間。Enum、Class、Instance、View、Form 都屬於某個 Workspace，彼此不共用。
+A **Workspace** is an independent data space. Enums, Classes, Instances, Views, and Forms belong to one Workspace and are not shared across Workspaces.
 
-| 操作 | 方式 |
-|------|------|
-| 新增 | 在 `Workspaces` 列表點 **+** |
-| 重新命名 | 依列表的編輯／選單操作（以實際介面為準） |
-| 刪除 | 滑動刪除或選單刪除（會一併移除其內資料） |
-| 進入 | 點 Workspace 名稱 |
+| Action | How |
+|--------|-----|
+| Add | On the `Workspaces` list, tap **+** |
+| Rename | Use the list edit / menu actions (follow the UI) |
+| Delete | Swipe to delete or use the menu (removes all data inside) |
+| Open | Tap the Workspace name |
 
 ---
 
 ## 3. Enumerables
 
-**Enumerable** 是一組固定可選值（例如狀態、國家代碼清單），供 Class 屬性選用。
+An **Enumerable** is a fixed set of allowed values (for example status codes or country codes) that Class properties can use.
 
-| 操作 | 說明 |
-|------|------|
-| Manage Enumerables | 建立、開啟、管理所有 Enum |
-| 新增 Value | 在 Enum 編輯頁加入 case |
-| 刪除 Value | 支援刪除 |
-| 重複檢查 | **不允許**相同名稱的 value（去除前後空白後比對） |
+| Action | Notes |
+|--------|--------|
+| Manage Enumerables | Create, open, and manage all enums |
+| Add value | Add a case on the enum editor |
+| Delete value | Supported |
+| Uniqueness | Duplicate value names are **not** allowed (compared after trimming) |
 
 ---
 
-## 4. Classes 與 Properties
+## 4. Classes and Properties
 
-**Class** 類似資料表；**Property** 是欄位。所有屬性皆為**選填**。
+A **Class** is like a table; a **Property** is a field. All properties are **optional**.
 
-### 屬性類型
+### Property types
 
-| 類型（UI） | 說明 |
-|------------|------|
-| **String** | 文字 |
-| **Date/Time** | 日期＋時間 |
-| **Date** | 僅日期 |
-| **Time** | 僅時間 |
-| **Integer** | 整數 |
-| **Float** | 小數 |
-| **Color** | 系統 ColorPicker；可清除為空 |
-| **Enumerable** | 綁定某個 Enumerable |
-| **Class** | 參考另一個 Class 的 Instance（外鍵式關聯） |
+| Type (UI) | Description |
+|-----------|-------------|
+| **String** | Text |
+| **Date/Time** | Date and time |
+| **Date** | Date only |
+| **Time** | Time only |
+| **Integer** | Whole number |
+| **Float** | Decimal number |
+| **Color** | System ColorPicker; can be cleared |
+| **Enumerable** | Bound to an Enumerable |
+| **Class** | Reference to an Instance of another Class (foreign-key style) |
 
-### 常見操作
+### Common steps
 
-1. **Manage Classes** → 新增 Class。  
-2. 進入 Class → 編輯 **Properties**（名稱、類型、Enum／Class 綁定）。  
-3. 需要關聯時，新增類型為 **Class** 的屬性，並指定目標 Class。
+1. **Manage Classes** → add a Class.  
+2. Open the Class → edit **Properties** (name, type, Enum / Class binding).  
+3. For relationships, add a **Class**-typed property and choose the target Class.
 
 ---
 
 ## 5. Instances
 
-**Instance** 是 Class 的一筆實際資料。
+An **Instance** is one row of data for a Class.
 
-1. 進入 Class → **Instances**。  
-2. 點 **+** 新增一筆，或點既有列進入編輯。  
-3. 依屬性類型使用對應控件（鍵盤、DatePicker、Picker、ColorPicker 等）。
+1. Open a Class → **Instances**.  
+2. Tap **+** to add, or tap a row to edit.  
+3. Use the control that matches each property type (keyboard, DatePicker, Picker, ColorPicker, and so on).
 
-刪除：在列表滑動刪除（以實際介面為準）。
+Delete: swipe to delete in the list (follow the UI).
 
-> 從 View 鑽取進入的 **Record Detail** 以檢視為主；完整編輯請走 Class → Instances。
+> **Record Detail** opened by drilling down from a View is mainly for viewing. For full editing, use Class → Instances.
 
 ---
 
 ## 6. Forms
 
-**Form** 是綁定單一 Class 的資料輸入介面，適合連續建檔。
+A **Form** is a data-entry UI bound to a single Class, suited to entering many records in a row.
 
-### 建立 Form
+### Create a Form
 
-1. Workspace → **Forms** → **Manage Forms** → **+**。  
-2. 輸入名稱（預設會帶入所選 Class 名稱）。  
-3. 選擇 **Class** → **Create**。
+1. Workspace → **Forms** → **Manage Forms** → **+**.  
+2. Enter a name (defaults to the selected Class name).  
+3. Choose a **Class** → **Create**.
 
-### 填寫
+### Fill in data
 
-1. 從 Forms 列表或 Manage Forms 開啟 Form。  
-2. 填寫各屬性。  
-3. 點 **Submit**：儲存為新 Instance，並清空表單以輸入下一筆。  
-4. **未 Submit 就離開**會丟棄目前草稿。
+1. Open the Form from the Forms list or Manage Forms.  
+2. Fill the properties.  
+3. Tap **Submit**: saves a new Instance and clears the form for the next record.  
+4. **Leaving without Submit** discards the current draft.
 
-可重新命名或刪除 Form（不影響已寫入的 Instances）。
+You can rename or delete a Form without affecting Instances already saved.
 
 ---
 
 ## 7. Views
 
-**View** 用來查詢與瀏覽資料，支援多 Class、篩選、分組彙總。
+A **View** queries and browses data. It supports multiple Classes, filters, and group-by aggregations.
 
-### 建立 View
+### Create a View
 
-1. **Manage Views** → **+**（**New View**）。  
-2. 輸入名稱。  
-3. **勾選一或多個 Classes**。  
-4. 選擇 **Output Columns**（顯示為 `Class › Field`；全關則輸出全部欄位）。  
-5. （可選）開啟 **Group by output columns**，並新增聚合：  
-   - **Count**（不需數值欄）  
-   - **Sum / Average / Min / Max / Median**（需選任一已選 Class 的 Integer／Float 欄）  
-6. （可選）**Filters**：AND／OR、類型化比較條件；欄位可來自任一已選 Class。  
-7. **Create**。
+1. **Manage Views** → **+** (**New View**).  
+2. Enter a name.  
+3. **Select one or more Classes**.  
+4. Choose **Output Columns** (shown as `Class › Field`; if none are selected, all columns are included).  
+5. (Optional) Turn on **Group by output columns** and add aggregations:  
+   - **Count** (no numeric field required)  
+   - **Sum / Average / Min / Max / Median** (pick an Integer or Float field from a selected Class)  
+6. (Optional) **Filters**: AND / OR with typed comparators; fields may come from any selected Class.  
+7. **Create**.
 
-> 建立後**不能更改 Classes**；其餘可編輯。
+> After creation you **cannot change the Classes**; everything else is editable.
 
-### 編輯既有 View
+### Edit an existing View
 
-在 **Manage Views** 點 **⋯** → **Edit…**，可改：
+In **Manage Views**, tap **⋯** → **Edit…** to change:
 
-- 名稱  
+- Name  
 - Output columns  
-- Group by／Aggregations  
+- Group by / aggregations  
 - Filters  
 
-### 執行 View
+### Run a View
 
-- 點 View 名稱開啟表格。  
-- **有 Class 參考**的多 Class View：以 INNER JOIN 關聯。  
-- **無關聯**：笛卡爾積。  
-- 套用 Filters →（可選）GROUP BY 與聚合。  
-- 點欄位標題排序。  
-- 點 accent 色的 **Class** 值可鑽取 **Record Detail**。
+- Tap the View name to open the table.  
+- Multi-class Views **with Class references**: related with INNER JOIN.  
+- **Unrelated** Classes: Cartesian product.  
+- Apply Filters → (optional) GROUP BY and aggregations.  
+- Tap a column header to sort.  
+- Tap an accent-colored **Class** value to open **Record Detail**.
 
-### 列表副標
+### List subtitles
 
-Workspace 與 Manage Views 列表會以小字顯示 Class、**Filter 摘要**、以及 group-by／聚合資訊。
+Workspace and Manage Views lists show Classes, a **filter summary**, and group-by / aggregation hints in secondary text.
 
 ---
 
 ## 8. ER Diagram
 
-1. Workspace → **⋯** → **ER Diagram**。  
-2. **Class** 與 **Enumerable** 以不同樣式區分；連線為 crow’s foot。  
-3. 手勢：拖曳表格、雙指縮放、拖背景平移。  
-4. **Auto Layout**：依螢幕寬度自動排版（最多約 3 欄），減少重疊與交叉，偏直向捲動。  
-5. **Reset** 回到預設網格；**Recenter** 重設平移。  
-6. **Export** PNG 或 PDF（系統分享）。
+1. Workspace → **⋯** → **ER Diagram**.  
+2. **Class** and **Enumerable** use different styles; links use crow’s foot notation.  
+3. Gestures: drag tables, pinch to zoom, drag the background to pan.  
+4. **Auto Layout**: lays out by screen width (about 3 columns max), reduces overlap and crossings, favors vertical scrolling.  
+5. **Reset** restores the default grid; **Recenter** resets pan.  
+6. **Export** PNG or PDF via the system share sheet.
 
 ---
 
-## 9. 匯出（Export）
+## 9. Export
 
-Workspace → **⋯** 選單：
+From the Workspace **⋯** menu:
 
-| 指令 | 內容 |
-|------|------|
-| **Export SQL DDL** | ANSI 風格 `CREATE TABLE`（含 `id` 主鍵）、外鍵、Enum 查表、`CREATE VIEW` |
-| **Export Data SQL** | `INSERT` 語句 |
-| **Export Data CSV** | 各表 CSV 打包為 **zip**，經系統分享面板送出 |
+| Command | Contents |
+|---------|----------|
+| **Export SQL DDL** | ANSI-style `CREATE TABLE` (with `id` primary key), foreign keys, enum lookup tables, `CREATE VIEW` |
+| **Export Data SQL** | `INSERT` statements |
+| **Export Data CSV** | Per-table CSV files packaged as a **zip**, shared via the system share sheet |
 
-說明：
+Notes:
 
-- 每個 Class／Enum 對應資料表；列以 Instance／case 的 **UUID** 作為 `id`（主鍵）。  
-- Class／Enum 參考欄位匯出為可設外鍵的 `CHAR(36)`。  
-- App 內屬性皆選填，DDL 中一般欄位為 **NULL**；`id` 為 **NOT NULL**。  
-- **Median** 在核心 ANSI SQL 無標準函式，DDL View 中會以註解占位。  
-- 檔案寫入 App Caches 後開啟系統分享。
+- Each Class / Enum maps to a table; rows use the Instance / case **UUID** as `id` (primary key).  
+- Class / Enum reference fields export as `CHAR(36)` suitable for foreign keys.  
+- App properties are optional, so ordinary DDL columns are **NULL**; `id` is **NOT NULL**.  
+- **Median** has no standard core ANSI function; DDL Views use a comment placeholder.  
+- Files are written under App Caches, then the system share sheet opens.
 
 ---
 
 ## 10. Generate Sample
 
-當 Workspace **完全空白**（無 Enum／Class／View／Form）時，工具列會顯示 **Generate Sample**。
+When a Workspace is **completely empty** (no Enum / Class / View / Form), the toolbar shows **Generate Sample**.
 
-會建立 Oracle **HR** 風格示範：
+It creates an Oracle **HR**-inspired demo:
 
-- Classes：Region、Country、Location、Job、Department、Employee、Job History  
-- 示範 Instances（含組織層級）  
-- 示範 Views（含 JOIN、篩選、GROUP BY）  
-- 每個 Class 一個同名 Form  
+- Classes: Region, Country, Location, Job, Department, Employee, Job History  
+- Sample Instances (including org hierarchy)  
+- Sample Views (JOIN, filters, GROUP BY)  
+- One Form per Class (same name as the Class)  
 
-詳見 [範例資料說明](user-guide-sample-data.md)。
-
----
-
-## 11. 能力與限制
-
-### 可以做
-
-- 多 Workspace 本機資料庫  
-- 九種屬性類型與 Class 關聯  
-- Forms 連續建檔  
-- 多 Class Views、Filters、GROUP BY 與聚合  
-- ER Diagram 與 PNG／PDF  
-- SQL DDL／INSERT／CSV 匯出  
-
-### 目前不支援／注意
-
-- 屬性「必填」約束（皆選填）  
-- 跨 Workspace 參考  
-- 雲端同步／帳號  
-- View 建立後更改所選 Classes  
-- Record Detail 內完整編輯（請用 Instances）  
-- 匯出的 SQL 需依目標資料庫微調（目標為 ANSI 風格，非保證各引擎一鍵可跑）
+See [sample data notes](user-guide-sample-data.md).
 
 ---
 
-## 12. 名詞對照
+## 11. Capabilities and limits
 
-| UI / 文件用語 | 說明 |
-|---------------|------|
-| Workspace | 獨立資料庫空間 |
-| Enumerable | 列舉／選項清單 |
-| Class | 資料類型／表 |
-| Property | 欄位 |
-| Instance | 一筆資料 |
-| Form | 依 Class 的輸入表單 |
-| View | 查詢／瀏覽定義 |
-| Filter | 篩選條件 |
-| Group by | 分組 |
-| Aggregation | Count／Sum／Avg／Min／Max／Median |
-| ER Diagram | 實體關係圖 |
-| Generate Sample | 產生示範資料 |
+### Supported
 
----
+- Multiple on-device Workspaces  
+- Nine property types and Class references  
+- Forms for continuous data entry  
+- Multi-class Views, Filters, GROUP BY, and aggregations  
+- ER Diagram with PNG / PDF export  
+- SQL DDL / INSERT / CSV export  
 
-## 相關文件
+### Not supported / caveats
 
-- [App Store 送審填寫資料](app-store-submission.md)  
-- [範例資料說明](user-guide-sample-data.md)  
-- [資料模型（開發用）](data-model.md)  
-- [UI 地圖（開發用）](ui-map.md)  
+- Required-field constraints (all properties are optional)  
+- Cross-Workspace references  
+- Cloud sync / accounts  
+- Changing selected Classes after a View is created  
+- Full editing inside Record Detail (use Instances)  
+- Exported SQL may need tweaks for your target database (ANSI-oriented; not guaranteed to run on every engine as-is)
 
 ---
 
-*本手冊對應含 Forms、多 Class Views、ER Auto Layout、SQL／CSV 匯出之功能版本。*
+## 12. Glossary
+
+| Term | Meaning |
+|------|---------|
+| Workspace | Independent database space |
+| Enumerable | Enum / pick list |
+| Class | Data type / table |
+| Property | Field |
+| Instance | One record |
+| Form | Class-bound entry form |
+| View | Query / browse definition |
+| Filter | Filter condition |
+| Group by | Grouping |
+| Aggregation | Count / Sum / Avg / Min / Max / Median |
+| ER Diagram | Entity-relationship diagram |
+| Generate Sample | Create demo data |
+
+---
+
+## Related docs
+
+- [App Store submission copy](app-store-submission.md)  
+- [Sample data notes](user-guide-sample-data.md)  
+- [Data model (developers)](data-model.md)  
+- [UI map (developers)](ui-map.md)  
+
+---
+
+*This manual matches the feature set that includes Forms, multi-class Views, ER Auto Layout, and SQL / CSV export.*
