@@ -31,10 +31,10 @@ Workspace 首頁分為三個區塊：
 
 ### A. 使用範例資料（最快）
 
-1. 建立空的 Workspace（不要先手動加 Enum / Class / View）。
+1. 建立空的 Workspace（不要先手動加 Enum / Class / View / Form）。
 2. 點 **Generate Sample**。
-3. App 會建立角色／專案／採購等範例結構與資料，以及幾個 Master Views。
-4. 從 **Views** 區塊點 **Projects**、**Purchase Orders** 或 **Team** 即可瀏覽。
+3. App 會建立 Oracle HR 風格的 Classes、實例資料、示範 Views，以及每個 table 的 Form。
+4. 從 **Views** 開 **Employee Directory** 或 **Salary by Department**；或從 **Forms** 開 **Employee** 新增資料。
 
 範例內容細節見 [範例資料說明](user-guide-sample-data.md)。
 
