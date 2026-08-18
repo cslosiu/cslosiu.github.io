@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<v1:datasets xmlns:v1="v1.dataset.pure.atira.dk" xmlns:v3="v3.commons.pure.atira.dk">
+  <v1:dataset id="dataverse:doi:10.5072/FK2/GTMMDL" type="dataset">
+    <v1:title>Edwin Testing for Email Templates (Publish again)</v1:title>
+    <v1:description>Testing for Email Templates (re-publish again)</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/GTMMDL</v3:id>
+      <v3:id type="dataverseinternalid">72</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="f1c48739-98d4-4ccf-97bc-47bf79f88eeb"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>7</v3:month>
+      <v3:day>30</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Siu Chung</v1:firstName>
+          <v1:lastName>LAW</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>City University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Siu Chung</v1:firstName>
+          <v1:lastName>LAW</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Business and Management</v1:keyword>
+      <v1:keyword>Other Impact</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/GTMMDL</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:edwinlaw.sc@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: Not Applicable — None</v1:description>
+      <v1:description type="additionaldescription">SDG impact: Other Impact</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/GTMMDL</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>Alma_cases.xlsx</v1:fileName>
+        <v1:title>Alma_cases.xlsx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/444</v1:fileLocation>
+      </v1:datasetdocuments>
+      <v1:datasetdocuments id="doc2">
+        <v1:type>other</v1:type>
+        <v1:fileName>CrossRef_API_ORCIDs.tab</v1:fileName>
+        <v1:title>CrossRef_API_ORCIDs.tab</v1:title>
+        <v1:mimeType>text/tab-separated-values</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/443</v1:fileLocation>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/118NMZ" type="dataset">
+    <v1:title>Test</v1:title>
+    <v1:description>test</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/118NMZ</v3:id>
+      <v3:id type="dataverseinternalid">78</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="e6ce5a4f-8760-4596-8801-2d8d5b17e51f"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>5</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>Run Run Shaw Library, City University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="contributorAssoc1">
+        <v1:person lookupId="extContributor1" origin="external">
+          <v1:firstName>Cindy</v1:firstName>
+          <v1:lastName>KOT</v1:lastName>
+        </v1:person>
+        <v1:role>datacurator</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Arts and Humanities</v1:keyword>
+      <v1:keyword>SDG 1 - No Poverty</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/118NMZ</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:lbatai@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: CityUHK Funding — CityU Funding | Open Access Fund | 000000000</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 1 - No Poverty</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/118NMZ</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>Estimated Figures for Library's Research Performance Dashboards.docx</v1:fileName>
+        <v1:title>Estimated Figures for Library's Research Performance Dashboards.docx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/459</v1:fileLocation>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by-nc</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/YEOJAO" type="dataset">
+    <v1:title>Test 2</v1:title>
+    <v1:description>test</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/YEOJAO</v3:id>
+      <v3:id type="dataverseinternalid">80</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="e6ce5a4f-8760-4596-8801-2d8d5b17e51f"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>5</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>Run Run Shaw Library, City University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Arts and Humanities</v1:keyword>
+      <v1:keyword>SDG 5 - Gender Equality</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/YEOJAO</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:lbatai@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: Local Funding - RGC — RGC | Early researcher fund | 00000000</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 5 - Gender Equality</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/YEOJAO</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>workflow_standford2%_20251114.docx</v1:fileName>
+        <v1:title>workflow_standford2%_20251114.docx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/461</v1:fileLocation>
+      </v1:datasetdocuments>
+      <v1:datasetdocuments id="doc2">
+        <v1:type>other</v1:type>
+        <v1:fileName>Estimated Figures for Library's Research Performance Dashboards 20260605.docx</v1:fileName>
+        <v1:title>Estimated Figures for Library's Research Performance Dashboards 20260605.docx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/463</v1:fileLocation>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by-nc</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/G773LG" type="dataset">
+    <v1:title>Bibliographic Data</v1:title>
+    <v1:description>test</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/G773LG</v3:id>
+      <v3:id type="dataverseinternalid">81</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="e6ce5a4f-8760-4596-8801-2d8d5b17e51f"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>5</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>Run Run Shaw Library, City University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Arts and Humanities</v1:keyword>
+      <v1:keyword>SDG 1 - No Poverty</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/G773LG</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:lbatai@cityu.edu.hk</v1:url>
+      </v1:link>
+      <v1:link id="publication1">
+        <v1:url>https://doi.org/10.1016/j.acalib.2009.04.005</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:relatedPublications>
+      <v1:relatedPublicationId>https://doi.org/10.1016/j.acalib.2009.04.005</v1:relatedPublicationId>
+    </v1:relatedPublications>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Related publication: Ching, S. H., &amp; Tai, A. (2009). HF RFID versus UHF RFID: Technology for Library Service Transformation at City University of Hong Kong. The Journal of Academic Librarianship, 35(4), 347-359. https://doi.org/10.1016/j.acalib.2009.04.005</v1:description>
+      <v1:description type="additionaldescription">Funding: CityUHK Funding — test</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 1 - No Poverty</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/G773LG</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>Estimated Figures for Library's Research Performance Dashboards.docx</v1:fileName>
+        <v1:title>Estimated Figures for Library's Research Performance Dashboards.docx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/465</v1:fileLocation>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by-nc</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/ANKJWO" type="dataset">
+    <v1:title>Testing dataset</v1:title>
+    <v1:description>test</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/ANKJWO</v3:id>
+      <v3:id type="dataverseinternalid">111</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="e6ce5a4f-8760-4596-8801-2d8d5b17e51f"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>7</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Arts and Humanities</v1:keyword>
+      <v1:keyword>SDG 1 - No Poverty</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/ANKJWO</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:lbatai@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: CityUHK Funding — CityUHK Funding | Young Scholars | YS12345678</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 1 - No Poverty</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/ANKJWO</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>Estimated Figures for Library's Research Performance Dashboards 20260605.docx</v1:fileName>
+        <v1:title>Estimated Figures for Library's Research Performance Dashboards 20260605.docx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/496</v1:fileLocation>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by-nc-nd</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/VANOSO" type="dataset">
+    <v1:title>Test</v1:title>
+    <v1:description>test</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/VANOSO</v3:id>
+      <v3:id type="dataverseinternalid">113</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>7</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Shuk Yi</v1:firstName>
+          <v1:lastName>TAI</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Arts and Humanities</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/VANOSO</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:lbatai@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:DOI>10.5072/FK2/VANOSO</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>Library Annual Report - 2025-2026 Draft.docx</v1:fileName>
+        <v1:title>Library Annual Report - 2025-2026 Draft.docx</v1:title>
+        <v1:mimeType>application/vnd.openxmlformats-officedocument.wordprocessingml.document</v1:mimeType>
+        <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/500</v1:fileLocation>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by-nc</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/SQKZ5I" type="dataset">
+    <v1:title>[TEST-SYNC] lu jian dataset</v1:title>
+    <v1:description>testing only</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/SQKZ5I</v3:id>
+      <v3:id type="dataverseinternalid">116</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="6f86c441-4b56-4f67-958e-ad2fd7b70c98"/>
+    <v1:organisations>
+      <v1:organisation lookupId="0be74b91-9733-4e49-bb65-fb5bccde34eb"/>
+      <v1:organisation lookupId="6f86c441-4b56-4f67-958e-ad2fd7b70c98"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>17</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="2e28d779-1155-49a2-bd2a-81aa891225cf"/>
+        <v1:organisations>
+          <v1:organisation lookupId="6f86c441-4b56-4f67-958e-ad2fd7b70c98"/>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Siu</v1:firstName>
+          <v1:lastName>LO</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Physics</v1:keyword>
+      <v1:keyword>SDG 1 - No Poverty</v1:keyword>
+      <v1:keyword>SDG 2 - Zero Hunger</v1:keyword>
+      <v1:keyword>SDG 3 - Good Health and Well-being</v1:keyword>
+      <v1:keyword>Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact.</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/SQKZ5I</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:siu.lo@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: Local Funding - RGC — Local Funding - RGC | xxxx | yyyy</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 1 - No Poverty</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 2 - Zero Hunger</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 3 - Good Health and Well-being</v1:description>
+      <v1:description type="additionaldescription">Other impact: Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact.</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/SQKZ5I</v1:DOI>
+    <v1:license>cc-by-nc</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/RSY191" type="dataset">
+    <v1:title>Replication Data for: Revised metadata blocks</v1:title>
+    <v1:description>Testing for metadata block setting</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/RSY191</v3:id>
+      <v3:id type="dataverseinternalid">114</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="7a7285c5-c3ae-4678-a3c0-894558b62147"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>11</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Siu Chung</v1:firstName>
+          <v1:lastName>LAW</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>City University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Siu Chung</v1:firstName>
+          <v1:lastName>LAW</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Astronomy and Astrophysics</v1:keyword>
+      <v1:keyword>SDG 13 - Climate Action</v1:keyword>
+      <v1:keyword>LightCurve</v1:keyword>
+      <v1:keyword>James Webb Space Telescope</v1:keyword>
+      <v1:keyword>Back of the Moon</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/RSY191</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:siucla2225@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: Not Applicable — None</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 13 - Climate Action</v1:description>
+      <v1:description type="additionaldescription">Astrophysics astroType: LightCurve</v1:description>
+      <v1:description type="additionaldescription">Astrophysics astroInstrument: James Webb Space Telescope</v1:description>
+      <v1:description type="additionaldescription">Astrophysics astroObject: Back of the Moon</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/RSY191</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>CrossRef_API_20.txt</v1:fileName>
+        <v1:title>CrossRef_API_20.txt</v1:title>
+        <v1:mimeType>text/plain</v1:mimeType>
+        <v1:visibility>Restricted</v1:visibility>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+</v1:datasets>
