@@ -72,7 +72,6 @@
         <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/443</v1:fileLocation>
       </v1:datasetdocuments>
     </v1:documents>
-    <v1:license>CC0 1.0</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
   <v1:dataset id="dataverse:doi:10.5072/FK2/118NMZ" type="dataset">
@@ -147,7 +146,7 @@
         <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/459</v1:fileLocation>
       </v1:datasetdocuments>
     </v1:documents>
-    <v1:license>CC BY-NC</v1:license>
+    <v1:license>cc-by-nc</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
   <v1:dataset id="dataverse:doi:10.5072/FK2/YEOJAO" type="dataset">
@@ -222,7 +221,7 @@
         <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/463</v1:fileLocation>
       </v1:datasetdocuments>
     </v1:documents>
-    <v1:license>CC BY-NC</v1:license>
+    <v1:license>cc-by-nc</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
   <v1:dataset id="dataverse:doi:10.5072/FK2/G773LG" type="dataset">
@@ -297,7 +296,7 @@
         <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/465</v1:fileLocation>
       </v1:datasetdocuments>
     </v1:documents>
-    <v1:license>CC BY-NC</v1:license>
+    <v1:license>cc-by-nc</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
   <v1:dataset id="dataverse:doi:10.5072/FK2/ANKJWO" type="dataset">
@@ -365,7 +364,7 @@
         <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/496</v1:fileLocation>
       </v1:datasetdocuments>
     </v1:documents>
-    <v1:license>CC BY-NC-ND</v1:license>
+    <v1:license>cc-by-nc-nd</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
   <v1:dataset id="dataverse:doi:10.5072/FK2/VANOSO" type="dataset">
@@ -425,7 +424,7 @@
         <v1:fileLocation>https://researchdatadev.esu.cityu.edu.hk/api/access/datafile/500</v1:fileLocation>
       </v1:datasetdocuments>
     </v1:documents>
-    <v1:license>CC BY-NC</v1:license>
+    <v1:license>cc-by-nc</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
   <v1:dataset id="dataverse:doi:10.5072/FK2/SQKZ5I" type="dataset">
@@ -485,7 +484,81 @@
       <v1:description type="additionaldescription">Other impact: Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact. Details of Other Impact.</v1:description>
     </v1:additionalDescriptions>
     <v1:DOI>10.5072/FK2/SQKZ5I</v1:DOI>
-    <v1:license>CC BY-NC</v1:license>
+    <v1:license>cc-by-nc</v1:license>
+    <v1:visibility>Public</v1:visibility>
+  </v1:dataset>
+  <v1:dataset id="dataverse:doi:10.5072/FK2/RSY191" type="dataset">
+    <v1:title>Replication Data for: Revised metadata blocks</v1:title>
+    <v1:description>Testing for metadata block setting</v1:description>
+    <v1:ids>
+      <v3:id type="dataverse">doi:10.5072/FK2/RSY191</v3:id>
+      <v3:id type="dataverseinternalid">114</v3:id>
+    </v1:ids>
+    <v1:managingOrganisation lookupId="organisation1"/>
+    <v1:organisations>
+      <v1:organisation lookupId="7a7285c5-c3ae-4678-a3c0-894558b62147"/>
+    </v1:organisations>
+    <v1:availableDate>
+      <v3:year>2026</v3:year>
+      <v3:month>8</v3:month>
+      <v3:day>11</v3:day>
+    </v1:availableDate>
+    <v1:publisher lookupId="publisher1"/>
+    <v1:persons>
+      <v1:person id="personAssoc1" contactPerson="true">
+        <v1:person lookupId="extPerson1" origin="external">
+          <v1:firstName>Siu Chung</v1:firstName>
+          <v1:lastName>LAW</v1:lastName>
+        </v1:person>
+        <v1:organisations>
+          <v1:organisation lookupId="extOrganisation1" origin="external">
+            <v1:name>City University of Hong Kong</v1:name>
+            <v1:type>unknown</v1:type>
+          </v1:organisation>
+        </v1:organisations>
+        <v1:role>datacollector</v1:role>
+      </v1:person>
+      <v1:person id="depositorAssoc1">
+        <v1:person lookupId="extDepositor1" origin="external">
+          <v1:firstName>Siu Chung</v1:firstName>
+          <v1:lastName>LAW</v1:lastName>
+        </v1:person>
+        <v1:role>depositor</v1:role>
+      </v1:person>
+    </v1:persons>
+    <v1:keywords>
+      <v1:keyword>Astronomy and Astrophysics</v1:keyword>
+      <v1:keyword>SDG 13 - Climate Action</v1:keyword>
+      <v1:keyword>LightCurve</v1:keyword>
+      <v1:keyword>James Webb Space Telescope</v1:keyword>
+      <v1:keyword>Back of the Moon</v1:keyword>
+    </v1:keywords>
+    <v1:links>
+      <v1:link id="dataverseLandingPage">
+        <v1:url>https://researchdatadev.esu.cityu.edu.hk/dataset.xhtml?persistentId=doi:10.5072/FK2/RSY191</v1:url>
+      </v1:link>
+      <v1:link id="datasetContactEmail">
+        <v1:url>mailto:siucla2225@cityu.edu.hk</v1:url>
+      </v1:link>
+    </v1:links>
+    <v1:additionalDescriptions>
+      <v1:description type="additionaldescription">Funding: Not Applicable — None</v1:description>
+      <v1:description type="additionaldescription">SDG impact: SDG 13 - Climate Action</v1:description>
+      <v1:description type="additionaldescription">Astrophysics astroType: LightCurve</v1:description>
+      <v1:description type="additionaldescription">Astrophysics astroInstrument: James Webb Space Telescope</v1:description>
+      <v1:description type="additionaldescription">Astrophysics astroObject: Back of the Moon</v1:description>
+    </v1:additionalDescriptions>
+    <v1:DOI>10.5072/FK2/RSY191</v1:DOI>
+    <v1:documents>
+      <v1:datasetdocuments id="doc1">
+        <v1:type>other</v1:type>
+        <v1:fileName>CrossRef_API_20.txt</v1:fileName>
+        <v1:title>CrossRef_API_20.txt</v1:title>
+        <v1:mimeType>text/plain</v1:mimeType>
+        <v1:visibility>Restricted</v1:visibility>
+      </v1:datasetdocuments>
+    </v1:documents>
+    <v1:license>cc-by</v1:license>
     <v1:visibility>Public</v1:visibility>
   </v1:dataset>
 </v1:datasets>
