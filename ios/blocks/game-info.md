@@ -91,4 +91,4 @@ Full scoring tables and control details are in the [Player Manual](PLAYER_MANUAL
 
 ## Related docs
 
-- [Player Manual](PLAYER_MANUAL.md) — how to play, controls, settings, scoring
+- [Player Manual](player-manual) — how to play, controls, settings, scoring
