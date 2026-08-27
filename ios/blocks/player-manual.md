@@ -205,4 +205,4 @@ Open **SETTINGS** from the title screen or pause menu.
 
 ## See also
 
-- [Game Info](GAME_INFO.md) — product overview and feature list
+- [Game Info](game-info) — product overview and feature list
