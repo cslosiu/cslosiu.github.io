@@ -1,6 +1,6 @@
 # RSS Translated
 
-A calm, private RSS reader with built-in translation. Your feeds stay on your device — no account, no sign-in.
+A calm, private RSS reader built for cross-language reading: on-device translation, article summarization, list auto-summary, and topic digests. Your feeds stay on your device — no account, no sign-in.
 
 **Product:** [losiu.com/ios/rss](https://losiu.com/ios/rss)  
 **Privacy:** [losiu.com/ios/privacy](https://losiu.com/ios/privacy)  
@@ -10,21 +10,32 @@ A calm, private RSS reader with built-in translation. Your feeds stay on your de
 
 ## Introduction
 
-RSS Translated helps you follow the sites and publications you care about through standard RSS and Atom feeds. Add a website or feed URL, organize subscriptions in folders, skim unread articles, and open any story in a clean reader. When an article is in another language, translate it with Apple’s on-device Translation — then switch back to the original whenever you like.
+RSS Translated helps you follow the sites and publications you care about through standard RSS and Atom feeds. Add a website or feed URL, organize subscriptions in folders, and skim unread stories in a clean three-pane layout (sidebar, article list, and reader).
 
-Everything is local-first: subscriptions, reading state, and favorites are stored on your iPhone or iPad. The app only uses the network to fetch feeds (and related images) and to run system translation when you ask for it. Both HTTP and HTTPS feed URLs are supported.
+What makes it different is how it handles language and length **on your device**:
+
+- **Translate** full articles with Apple Translation (using language packs already installed on the device).
+- **Summarize** long posts into a short on-device summary (Apple Intelligence when available; otherwise Natural Language analysis), shown as a banner in the reader and optionally in a summary sheet.
+- **Auto summary** in the article list — new items can be summarized and translated in the background so you can skim in your language without opening every story.
+- **Topic digests** — the app periodically folds related articles into longer essays stored locally, with optional translation.
+
+Everything is local-first: subscriptions, reading state, favorites, summary caches, and digests live on your iPhone or iPad. The network is used to fetch feeds and images, and for on-device translation when a language pair is already available. Both HTTP and HTTPS feed URLs are supported.
 
 ### What you can do
 
 - Add feeds from a site or feed URL (with automatic detection), optionally into a folder
 - Share a webpage from Safari or other apps to open **Add Feed** with the site host filled in
-- Browse **All Articles**, **Favorites**, a folder, or a single subscription
-- Search the feed list by name or feed URL; search the article list by title and content
-- Filter a list to unread or favourites; mark items read (including mark all in the current list)
-- Read articles with share, open in browser, favorite, translate, adjustable fonts, and next article
-- Tap article images to view them full screen (zoom, share, or save)
+- Browse **All Articles**, **Favorites**, a folder, or a single subscription; open **Topics** for digests
+- Search feeds by name or URL; search articles by title and content
+- Filter a list to unread or favourites; mark all items in the current list as read
+- Choose list style: **Auto summary** (default), **Preview**, or **Title only**
+- Auto-summarize and translate new articles in the list (optional; cached on device by language)
+- Summarize in the reader (banner + sheet); translate summaries and full articles
+- Customize reader fonts — title, body, and the summary banner follow the same family (banner at a relative size)
+- Tap article images for a full-screen viewer (zoom and share)
+- Run topic digests on an interval or on demand; read stored essays (translated when available)
 - Import OPML from Files or a web URL; export OPML
-- View feed info, move feeds between folders, and see refresh errors when a feed fails
+- View feed info, move feeds between folders, and inspect refresh errors
 - On first launch with no subscriptions, load curated **Sample Feeds** automatically
 
 ---
@@ -33,166 +44,222 @@ Everything is local-first: subscriptions, reading state, and favorites are store
 
 ### Main layout
 
-The app uses three columns on larger screens (and stacked navigation on iPhone):
+On larger screens the app uses three columns (stacked navigation on iPhone):
 
-1. **Sidebar** — subscriptions and smart lists  
-2. **Article list** — stories for the current selection  
-3. **Reader** — the article you selected  
+1. **Sidebar** — smart lists, subscriptions, and Topics  
+2. **Article list** (or a topic digest placeholder) — stories for the current selection  
+3. **Reader** — the article or digest essay you selected  
 
-Tap a sidebar item to change which articles appear in the list. Tap a row to read it (opening an article marks it as read).
+Tap a sidebar item to change the list. Opening an article marks it as read.
 
 ---
 
 ### Sidebar
 
+Navigation title: **RSS Translated**.
+
 | Item | Purpose |
 |------|---------|
 | **All Articles** | Every article from all feeds |
 | **Favorites** | Articles you starred |
-| **Favorite Feeds** | Feeds you marked as favourite (shown only when you have some) |
-| **Subscriptions** | Your folders and feeds (with unread counts), sorted case-insensitively by name |
+| **Favorite Feeds** | Feeds you marked as favourite (only when you have some) |
+| **Subscriptions** | Folders and feeds with unread counts (case-insensitive name order) |
+| **Topics** | Topic digests (when digests exist, a run is in progress, or a run has completed before) |
+
+While searching feeds, smart lists and Topics are hidden so you can focus on matching subscriptions.
 
 #### Bottom toolbar
 
 | Control | Action |
 |---------|--------|
-| Import / Export | Menu: **Import from Files**, **Import from URL**, or **Export OPML** |
-| Search | Show a search field above the feed list |
-| Refresh | Refresh all feeds |
+| Import and Export | **Import from Files**, **Import from URL**, **Export OPML**, then **Update Topic Digests** |
+| Search | Show a search field above the feed list (`Search feeds`) |
+| Refresh All | Refresh every subscription |
 | Settings | Open app settings |
 | **+** | Add a feed |
 
-**Feed search** matches feed titles and feed URLs as you type. Matching feeds inside folders expand those folders automatically. Tap Search again to hide the bar.
+**Feed search** matches titles and feed URLs. Matching feeds inside folders expand those folders automatically. Tap Search again to hide the bar. Empty results: **No Results**.
 
-#### Feed actions
+#### Folders and feeds
 
-On a feed row, use the context menu or swipe actions to:
+- Tap a **folder name** to show all articles from feeds in that folder and its nested folders (newest first).  
+- Use the chevron to expand or collapse the folder without changing the selection.  
+- Unread counts on folders include nested feeds.
+
+On a feed row (context menu or swipe):
 
 - **Feed Info** — title, URLs, last fetch, unread count, and folder (move or create a folder)  
-- **Favorite / Unfavorite** the feed  
+- **Add Favorite** / **Remove Favorite**  
 - **Refresh** that feed only  
-- **Delete** the feed (and its articles)  
+- **Delete** the feed and its articles  
 
-If a refresh fails, an warning icon appears on the feed row. Tap it to read the error and dismiss or delete the feed.
+If a refresh fails, an orange warning appears on the row. Tap it for **Refresh Error**, then **Close** or **Delete**.
 
-Folders can come from OPML import (including nested folders), from **Add Feed** / **Feed Info** when you choose a new or existing folder, or from the automatic **Sample Feeds** folder on first launch. Feeds without a folder appear directly under **Subscriptions**.
+Folders come from OPML import (including nesting), **Add Feed** / **Feed Info**, or the automatic **Sample Feeds** folder. Feeds without a folder sit directly under **Subscriptions**.
+
+#### Topics
+
+Digests are grouped by tag. Expand a tag to see essay rows (date and article count).
+
+- While a run is in progress, status text appears **under the Topics header** (for example `Updating topic digests…` or `Digesting: …`).  
+- The section footer shows **Last digest** date/time, or **No digests yet**.  
+
+Open an essay to read it. The app prefers a stored translation when present; otherwise it shows the source-language essay and offers **Translate**.
 
 #### Sample Feeds
 
-If you open the app with no subscriptions yet, RSS Translated loads a starter set of public feeds into a **Sample Feeds** folder and refreshes them. You can favorite, move, or delete those feeds like any other subscription.
+With no subscriptions yet, the app seeds a **Sample Feeds** folder from a curated public list and refreshes those feeds. Treat them like any other subscription (favorite, move, or delete).
 
 ---
 
 ### Add a feed
 
 1. Tap **+** in the sidebar.  
-2. Enter a website or feed URL (for example `https://example.com`).  
-3. Tap **Detect** (or press Go on the keyboard).  
+2. Enter a website or feed URL (placeholder `https://example.com`).  
+3. Tap **Detect** (or Go on the keyboard).  
 4. Choose a result under **Detected Feeds**.  
-5. Optionally assign a folder: **No Folder**, an existing folder, or **New Folder**.  
+5. Optionally set **Add to**: **No Folder**, an existing folder, or **New Folder**.  
 6. Tap **Add**.  
 
-The feed is saved and refreshed automatically. Use **Cancel** to close without adding.
+The feed is saved and refreshed immediately. **Cancel** closes without adding.
 
 #### Share from another app
 
 1. In Safari (or another app), share a webpage URL.  
 2. Choose **RSS Translated** in the system share sheet.  
-3. The app opens **Add Feed** with the site’s host (hostname only) in the URL field — then Detect / Add as usual.
+3. Confirm **Open in RSS Translated**.  
+4. **Add Feed** opens with the site **hostname** filled in — then Detect / Add as usual.
 
 ---
 
 ### Article list
 
-The list shows articles for the current sidebar selection. Style comes from Settings:
+Style comes from **Settings → List style**:
 
-- **Title only** — titles only (read items appear dimmer)  
-- **Preview** — title, preview text, optional thumbnail, and date  
+| List style | What you see |
+|------------|----------------|
+| **Auto summary** (default) | Title plus on-device summary (translated summary preferred when cached). Until a summary exists, a short content preview may show as a stand-in. Optional thumbnail and date. |
+| **Preview** | Title, a few lines of feed/content preview (**Preview lines**), optional thumbnail, and date |
+| **Title only** | Titles only (read items appear dimmer); no thumbnail or date |
+
+**Background list summarization** runs only when **Auto-summarize feeds** is on **and** list style is **Auto summary**. It targets articles that are not yet summarized (after launch and after feed refresh), with limited concurrency. Cached summaries stay when you switch to Preview or Title only; clear them in Settings when you want to free space or regenerate.
 
 #### Bottom toolbar
 
 | Control | Action |
 |---------|--------|
-| Show all | Clear list filters |
-| Show unread only | Only unread articles in this list |
-| Show favourite in this list | Only favourited articles in this list |
-| Mark all read | Confirm, then mark every article in the current scope as read |
-| Search | Show a search field above the list |
+| Show All | Clear list filters |
+| Show Unread Only | Only unread articles in this list |
+| Show Favourite in This List | Only favourited articles in this list |
+| Mark All Read | Confirm, then mark every article in the current scope as read |
+| Search | Search field (`Search titles and articles`) |
 
-**Search** matches text in titles and article content. Tap Search again to hide the bar; pressing Return on an empty search field also closes it.
+Search matches title, preview, list summary, and article body/HTML fields. Changing the sidebar selection resets filters and search.
 
-Changing the sidebar selection resets filters and search for that list.
+**Pull to refresh** is available when viewing a **single feed**.
+
+Empty list: **No Articles**. No search hits: **No Results**.
 
 ---
 
 ### Reading an article
 
-Select an article to open the reader. Use the bottom toolbar:
+Opening an article marks it as read. The reader may show an **automatic summary** banner at the top (cached summary, or while a fresh summary is generated for this article). Labels: **Automatic summary** or **Automatic summary translated**; loading shows **Summarizing…**.
+
+#### Bottom toolbar
 
 | Control | Action |
 |---------|--------|
-| Open in Browser | Open the article link in Safari / default browser |
-| Share | Share the title and link via the system share sheet |
-| Favorite | Star or unstar the article |
-| Translate | Translate into your preferred language, or **Show Original** to switch back |
-| View | Open **View Settings** for font and size |
-| Next | Jump to the next article in the current list |
+| Open & Share | **Open in Browser** or **Share** the article link |
+| Summarize | Open the **Summary** sheet (generates a summary if needed) |
+| Favorite / Unfavorite | Star or unstar the article |
+| Translate / Show Original | Translate title and body, or switch back |
+| View | **View Settings** for font and size |
+| Next | Next article in the current list order |
 
-If the article has a main image, tap it to open a full-screen viewer with zoom, share, and save to Photos (permission is requested when you save).
+The **Summary** sheet shows the summary text, sentence count, and backend name (**Apple Intelligence** or **On-device language analysis**), and may include a **Translation** section when a translated summary is available.
+
+Tap the hero image for a full-screen viewer: **Close**, pinch to zoom, and **Share**. (Saving to Photos is not offered.)
 
 #### View Settings
 
-- **Font** — pick any system font (or **Use System Font**)  
-- **Use System Text Size** — follow Dynamic Type when on  
-- **Font Size** — custom size from 10 to 25 when system size is off  
+- **Font** — choose a system font, or **Use System Font**  
+- **Use System Text Size** — follow Dynamic Type (default on)  
+- **Font Size** — 10–25 when system size is off (default 17)  
 
-These preferences are remembered for the reader.
+These settings apply to the article title and body, and to the **summary banner** (same family; banner text stays relatively smaller than body text).
 
-Translation uses Apple Translation and follows your device language settings. The first use of a language pair may download a language pack. If a pair is unavailable, the app shows an error message.
+Translation uses Apple’s on-device Translation with **already installed** language pairs. If a pair is unavailable, the app shows an error rather than prompting to download packs from the reader flow.
 
 ---
 
 ### Settings
 
-Open **Settings** from the sidebar gear.
+Open **Settings** from the sidebar gear, then **Done** to close.
 
-**Article List**
+#### Article List
 
-- **List style** — Title only or Preview  
-- **Preview lines** — how many lines of preview text (when Preview is selected)  
-- **Show article thumbnails** — show or hide the article image thumbnail in Preview mode  
+- **List style** — Auto summary, Preview, or Title only (default: Auto summary)  
+- **Preview lines** — 1–10 (default 3); only shown when Preview is selected  
+- **Show article thumbnails** — default on  
 
-Reader font and size are set from the article **View** button, not from this screen.
+#### Summarize
+
+- **Auto-summarize feeds** — allow background list summarization (default on; also requires Auto summary list style)  
+- **Summary sentences** — target length (default 3; range 1–10)  
+- **Summarized articles** / **Translated summaries** — cache counts  
+- **Clear Cached Summaries** — remove stored summaries and translations to free space (they can be regenerated later)  
+
+Turning Auto-summarize off, or switching list style away from Auto summary, stops the background pipeline but does not delete existing caches.
+
+#### Topic Digests
+
+- **Digest max words** — target essay length (default 200; 100–1000)  
+- **Auto-update every N day(s)** — interval between automatic runs (default 7; 1–30)  
+
+Reader fonts are configured from the article **View** button, not here.
 
 ---
 
 ### Refreshing feeds
 
-- The app refreshes feeds when it launches (and when returning to the foreground, with a short cooldown so servers are not hammered).  
-- Use **Refresh** in the sidebar to refresh everything again.  
-- Use **Refresh** on a single feed for just that source.  
-- After an OPML import or Sample Feeds seed, feeds are refreshed automatically.  
+- Feeds refresh on launch and when returning to the foreground (with a short cooldown so servers are not hammered).  
+- **Refresh All** in the sidebar refreshes every subscription.  
+- **Refresh** on a single feed (or pull to refresh on that feed’s list) updates one source.  
+- After OPML import or Sample Feeds seeding, feeds refresh automatically.  
+- When Auto summary is enabled, unsummarized articles are queued after launch/refresh for background summary (and silent translation when the language pair is installed).  
+
+---
+
+### Topic digests
+
+Topic digests combine recent articles into longer essays stored on device (`DigestedTag` / `DigestEssay`).
+
+- **Automatic:** first run when no digests exist yet; later runs after the interval in Settings. Also considered on launch and when returning to the foreground.  
+- **Manual:** Import and Export → **Update Topic Digests** (disabled while a run is in progress).  
+- Progress appears as caption text under the **Topics** header; the footer shows the last successful run time.  
+- Essays are stored even if translation fails; translate later from the digest reader.  
 
 ---
 
 ### OPML import and export
 
-Open the **Import / Export** menu in the sidebar:
+From **Import and Export**:
 
-- **Import from Files** — pick an OPML (or compatible) file to bring in folders and feeds.  
-- **Import from URL** — paste a link to an OPML file on the web, then Import.  
-- **Export OPML** — share or save your current subscription list as OPML.  
+- **Import from Files** — pick an OPML (or compatible) file.  
+- **Import from URL** — paste a link to an OPML file, then Import.  
+- **Export OPML** — share or save your subscription list (default name `rss-translated-subscriptions`).  
 
-Use **Feed Info** or **Add Feed** to place feeds in folders without re-importing OPML.
+Use **Feed Info** or **Add Feed** to place feeds in folders without re-importing.
 
 ---
 
 ### Privacy and data
 
 - No account or login.  
-- Subscriptions, articles, and reading state stay on your device.  
-- Network is used to fetch feeds/images and for translation when you request it.  
-- Standard HTTPS and Apple system frameworks only for those network features (export compliance: non-exempt encryption not used).  
+- Subscriptions, articles, reading state, favorites, summary caches, and digests stay on your device.  
+- Network is used to fetch feeds and images, and for on-device translation when a language pair is already installed.  
+- Standard HTTPS and Apple system frameworks only (export compliance: non-exempt encryption not used).  
 
 More detail: [Privacy Policy](https://losiu.com/ios/privacy).  
 Need help: [Support](https://losiu.com/ios/support).
@@ -203,8 +270,10 @@ Need help: [Support](https://losiu.com/ios/support).
 
 1. On a fresh install, try **Sample Feeds**, then keep or remove what you like.  
 2. Share a site from Safari into RSS Translated when you discover something new.  
-3. Prefer **Unread only** when catching up; use article **Search** to find an older story, or feed **Search** to find a subscription.  
-4. Star important articles or feeds so they appear under **Favorites** / **Favorite Feeds**.  
-5. Use **Translate** for foreign-language posts, then **Show Original** to compare.  
-6. Turn off **Show article thumbnails** in Settings for a denser Preview list.  
-7. Keep a backup of subscriptions with **Export OPML** before resetting a device.
+3. Keep **Auto summary** for a translated skim of the list; switch to **Preview** for raw content snippets.  
+4. Use **Show Unread Only** when catching up; use article or feed **Search** to find older items or subscriptions.  
+5. Star important articles or feeds for **Favorites** / **Favorite Feeds**.  
+6. In the reader, use **Summarize** and **Translate**, then **Show Original** to compare.  
+7. Run **Update Topic Digests** after catching up on several feeds.  
+8. Use **Clear Cached Summaries** if you need space or want fresh summaries.  
+9. Export OPML before resetting a device so you can restore subscriptions quickly.
